@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#tikla').click(function(event) {
+                $.get('http://ip.jsontest.com/', function (gelen) {
+                    $('#yaz').html(gelen.ip);
+                  })
+            })
+        })
+
+        $(document).ready(function() {
+            $.get('https://jsonplaceholder.typicode.com/todos/15', function (gelen) {
+                console.log(gelen);
+                $('#userId').html(gelen.userId);
+                $('#id_').html(gelen.id);
+                $('#title').html(gelen.title);
+                $('#completed').html(gelen.completed.toString());
+              })
+        })
+
+        $(document).ready(function () {
+            var isimler = ["Sina", "Burak", "Alpteki", "Furkan", "Ziya", "Hüseyin", "Selahattin", "Alperen"];
+
+            $('#ekle').on('click', function () {
+                for(var i = 0; i < isimler.length; i++) {
+                    //append => bir html elementinin içine başka bir element eklemek için kullanılır. 
+                    $('#isimListe').append("<li>" + isimler[i] + "</li>\n");
+                }
+              })
+
+
+          })
+    </script>
+
+  </head>
+  
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>JQuery Örnekleri - 11</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button id="tikla" class="btn btn-info">Tıkla</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 id="yaz"></h1>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>JQuery Örnekleri - 12</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Bugün Yapılacak</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <label class="fw-bold mx-2">UserId: </label>
+                            <label id="userId" ></label>
+                        </div>
+                        <hr>
+                        <div class="d-flex">
+                            <label class="fw-bold mx-2">Id: </label>
+                            <label id="id_" ></label>
+                        </div>
+                        <hr>
+                        <div class="d-flex">
+                            <label class="fw-bold mx-2">Title: </label>
+                            <label id="title" ></label>
+                        </div>
+                        <hr>
+                        <div class="d-flex">
+                            <label class="fw-bold mx-2">Completed: </label>
+                            <label id="completed" ></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>JQuery Örnekleri - 13</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 my-2 d-flex">
+                <h3>İsimler</h3>
+                <button id="ekle" class="btn btn-info mx-2">Listeye Ekle</button>
+            </div>
+           
+            <div class="col-md-12 ">
+                <ul id="isimListe"></ul>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
